@@ -1,89 +1,65 @@
-# 🤝 SignSarthi – Indian Sign Language Translator (Software-Only)
+# 🧤 Sign Language Converter with Smart Glove & Web App
 
-**SignSarthi** is a patented AI-powered translator designed to bridge the communication gap between the deaf/mute community and the hearing world. It converts **Indian Sign Language (ISL)** into real-time text and speech, enabling inclusive communication across educational, healthcare, and public domains.
-
-> 🏆 **Patent Granted**: This software solution is officially patented for its novel approach to real-time ISL translation.
+A real-time Indian Sign Language translation system using a smart glove and web interface. This project aims to bridge the communication gap between the hearing and speech-impaired community and the rest of the world using sensor-based gesture recognition and AI.
 
 ---
 
-## 🧩 Problem Statement
+## 🚀 Features
 
-The deaf and hard-of-hearing community in India faces significant communication barriers due to the lack of awareness and tools supporting Indian Sign Language (ISL). Existing translation solutions are either inefficient, expensive, or lack real-time capabilities. This hinders access to education, employment, and daily interaction.
-
----
-
-## 💡 Key Features
-
-- 🔄 **Real-Time ISL Translation**: Instantly convert hand gestures into readable and audible output.
-- 🗣 **Text-to-Speech Conversion**: Recognized gestures are transformed into voice for easy understanding.
-- 🌐 **Multi-Language Support**: Translations available in multiple Indian languages using APIs.
-- 🎓 **ISL Learning Module**: Interactive tool to teach users Indian Sign Language.
-- 📞 **On-Call Translation (Prototype Ready)**: Real-time gesture recognition during video or voice calls.
+- ✋ **Smart Glove Hardware**: Detects hand gestures using flex sensors and sends data to the computer via serial communication.
+- 🔊 **Real-Time Translation**: Converts signs to readable text and audible speech using Python and ML.
+- 🌐 **Web Interface**: Streamlit-based dashboard to display live translations, user guide, and feedback system.
+- 🧠 **Custom ML Models**: Trained on hand movement data for accurate recognition.
+- 🔗 **End-to-End System**: Integrates hardware, software, and AI for a seamless user experience.
 
 ---
 
-## 🧠 Tech Stack
+## 🛠️ Tech Stack
 
-- **Backend**: Python  
-- **Frontend**: HTML, CSS, JavaScript  
-- **Libraries & Frameworks**: OpenCV, MediaPipe, TensorFlow, Keras, gTTS (Google Text-to-Speech)  
-- **Translation APIs**: Used for converting ISL text into multiple Indian languages and speech  
-
----
-
-## 🔁 Process Flow
-
-1. **Capture Gestures**: Hand gestures are recorded via webcam using OpenCV.
-2. **Hand Landmark Detection**: MediaPipe extracts 21 key points from the hand in real-time.
-3. **Gesture Classification**: 
-   - CNN model classifies static gestures (like alphabets).
-   - LSTM model classifies dynamic gestures (like sentences).
-4. **Mapping and Output**:
-   - Gestures are mapped to corresponding text.
-   - Text is displayed and converted into speech using gTTS.
-   - Translations are optionally performed into regional languages using translation APIs.
+| Component         | Technology                                |
+|------------------|-------------------------------------------|
+| Language          | Python, Embedded C                        |
+| Hardware          | Arduino, Flex Sensors, Accelerometer      |
+| ML/AI             | Scikit-learn, Custom Classifiers          |
+| Web App           | Streamlit                                 |
+| Communication     | Serial (USB), PySerial                    |
+| Visualization     | Matplotlib, Streamlit Charts              |
+| Others            | NumPy, Pandas, MediaPipe (optional)       |
 
 ---
 
-## 📦 Installation Guide
+## 🧩 Hardware Requirements
 
-### ✅ Prerequisites
-- Python 3.8 or above
-- A webcam-enabled device
+- Arduino Uno/Nano
+- 5 Flex Sensors (one for each finger)
+- Jumper Wires
+- Resistors (10kΩ)
+- Bluetooth Module / USB Cable (for serial communication)
+- Glove or hand strap for mounting sensors
 
-### 🔧 Setup Steps
+---
 
-**1. Clone the repository**
+## 🧪 How It Works
+
+1. **Glove Setup**: Flex sensors detect finger bending and send analog signals to Arduino.
+2. **Data Processing**: Arduino sends processed values over serial to the PC.
+3. **Prediction**: Python reads serial data and classifies it using a pre-trained ML model.
+4. **Output**: Result is displayed on the Streamlit web app and converted to speech using `pyttsx3`.
+
+---
+
+## 📦 Installation
+
 ```bash
-git clone https://github.com/your-username/SignSarthi.git
-cd SignSarthi
-```
+# Clone the repository
+git clone https://github.com/YourUsername/Sign-Language-Converter.git
+cd Sign-Language-Converter
 
-**2. Install dependencies**
-```bash
+# Install Python dependencies
 pip install -r requirements.txt
-```
 
-**3. Run the translator**
-```bash
-python app.py
-```
+# Upload Arduino sketch
+# (Use Arduino IDE or PlatformIO to flash code to Arduino)
 
-**4. Open the Frontend**
-Open the `index.html` file from the `frontend/` folder in your browser to interact with the UI built using HTML, CSS, and JavaScript.
-
----
-
-## 🧠 Software Model Overview
-
-- **MediaPipe**: Detects hand landmarks to generate input data.
-- **CNN & LSTM Models**: Classify static and dynamic gestures respectively.
-- **Text & Speech Output**: gTTS and REST APIs convert recognized ISL gestures into speech.
-- **Multi-Language Translation**: Supports Indian languages for text output via external APIs.
-- **Frontend Interface**: Built using HTML, CSS, and JavaScript for real-time interaction with the backend model.
-
----
-
-## 📜 License & Patent
-
-This project is **patented and protected**. Redistribution or commercial use of the software or its models without prior permission is strictly prohibited.
+# Run the web app
+streamlit run app.py
