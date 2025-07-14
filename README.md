@@ -48,7 +48,44 @@ A real-time Indian Sign Language translation system using a smart glove and web 
 
 ---
 
-## 📦 Installation
+
+## 📦 Installation Guide
+
+### ✅ Prerequisites
+- Python 3.8 or above
+- A webcam-enabled device
+
+### 🔧 Setup Steps
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/your-username/SignSarthi.git
+cd SignSarthi
+```
+
+**2. Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**3. Run the translator**
+```bash
+python app.py
+```
+
+**4. Open the Frontend**
+Open the `index.html` file from the `frontend/` folder in your browser to interact with the UI built using HTML, CSS, and JavaScript.
+
+---
+
+## 🧠 Software Model Overview
+
+- **MediaPipe**: Detects hand landmarks to generate input data.
+- **CNN & LSTM Models**: Classify static and dynamic gestures respectively.
+- **Text & Speech Output**: gTTS and REST APIs convert recognized ISL gestures into speech.
+- **Multi-Language Translation**: Supports Indian languages for text output via external APIs.
+- **Frontend Interface**: Built using HTML, CSS, and JavaScript for real-time interaction with the backend model.
+
 
 ```bash
 # Clone the repository
